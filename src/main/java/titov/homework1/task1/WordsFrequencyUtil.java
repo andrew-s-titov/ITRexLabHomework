@@ -41,6 +41,7 @@ public class WordsFrequencyUtil {
         return frequencyMap.getOrDefault(word, 0);
     }
 
+    // Creates a List with words from a text (case-sensitive)
     private static List<String> wordsFromText(String engText) {
         List<String> words = new ArrayList<>();
         if (engText.isBlank()) {
@@ -54,6 +55,7 @@ public class WordsFrequencyUtil {
         return words;
     }
 
+    // Creates a Map with words from a text as keys and frequency of each word as key's value
     private static Map<String, Integer> wordFrequencyMap(String engText) {
         List<String> words = wordsFromText(engText);
         Map<String, Integer> frequencyMap = new HashMap<>();
