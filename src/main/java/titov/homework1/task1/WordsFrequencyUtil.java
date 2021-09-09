@@ -47,7 +47,7 @@ public class WordsFrequencyUtil {
         if (engText.isBlank()) {
             return words;
         }
-        Pattern word = Pattern.compile("\\b[\\w-']+\\b");
+        Pattern word = Pattern.compile("\\b[\\w'-]+\\b");
         Matcher matcher = word.matcher(engText);
         while (matcher.find()) {
             words.add(matcher.group());
