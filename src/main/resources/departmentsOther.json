@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Manhattan",
+    "code": "111-53513",
+    "employees": [
+      {
+        "name": "William",
+        "salary": 20000
+      },
+      {
+        "name": "Sophia",
+        "salary": 30000
+      }
+    ]
+  },
+  {
+  "name": "California",
+  "code": "111-54846",
+  "employees": [
+  {
+    "name": "Bill",
+    "salary": 50000
+  },
+  {
+    "name": "Wu",
+    "salary": 19000
+  }
+]
+  },
+  {
+    "name": "Texas",
+    "code": "222-13648",
+    "employees": [
+      {
+        "name": "John",
+        "salary": 50000
+      },
+      {
+        "name": "John",
+        "salary": 30000
+      }
+    ]
+  }
+]
