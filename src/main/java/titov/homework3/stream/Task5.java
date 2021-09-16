@@ -37,6 +37,13 @@ public class Task5 {
      * @return sum of odd numbers
      */
     public static long sumOfOddNumbersInRange(long start, long end) {
+        if (start < 0) {
+            throw new IllegalArgumentException("Start number can't be less than 0!");
+        }
+        if (end < start) {
+            throw new IllegalArgumentException("End number can't be less than start number!");
+        }
+
         return LongStream.rangeClosed(start, end)
                 .filter(n -> n % 2 != 0)
                 .reduce(0L, Long::sum);

@@ -1,6 +1,5 @@
 package titov.homework3.stream;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -19,10 +18,14 @@ import java.util.stream.Stream;
 public class Task2 {
 
     public static Stream<String> createBadWordsDetectingStream(String text, List<String> badWords) {
-        List<String> wordsFromText = Arrays.asList(text.split("\\s"));
-        return badWords.stream()
-                .filter(wordsFromText::contains)
-                .distinct()
-                .sorted();
+        if (text == null || badWords == null) {
+            return Stream.empty();
+        } else {
+            List<String> wordsFromText = List.of(text.split("\\s"));
+            return badWords.stream()
+                    .filter(wordsFromText::contains)
+                    .distinct()
+                    .sorted();
+        }
     }
 }

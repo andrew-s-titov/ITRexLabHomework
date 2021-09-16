@@ -39,6 +39,10 @@ public class Task4 {
      * @return factorial value
      */
     public static long factorial(long n) {
+        if (n < 0) {
+            throw new IllegalArgumentException("Number can't be less than 0!");
+        }
+
         return LongStream.rangeClosed(1, n)
                 .reduce((n1, n2) -> n1 * n2)
                 .orElse(1L);

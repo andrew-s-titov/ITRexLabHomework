@@ -10,5 +10,7 @@ public class Task1Test {
         Assertions.assertTrue(Task1.isPrime(3));
         Assertions.assertFalse(Task1.isPrime(4));
         Assertions.assertTrue(Task1.isPrime(7919));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Task1.isPrime(1));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Task1.isPrime(-5));
     }
 }

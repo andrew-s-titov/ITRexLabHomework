@@ -37,8 +37,10 @@ public class Task1 {
      * @return true if number is prime else false
      */
     public static boolean isPrime(final long number) {
+        if (number < 2) {
+            throw new IllegalArgumentException("Number can't be less than 2!");
+        }
         return LongStream.range(2, number)
                 .noneMatch(v -> number % v == 0);
-        // returns false for numbers < 2 because range method calls .empty() if startInclusive >= endExclusive
     }
 }

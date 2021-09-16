@@ -10,5 +10,6 @@ public class Task4Test {
         Assertions.assertEquals(1, Task4.factorial(1));
         Assertions.assertEquals(2, Task4.factorial(2));
         Assertions.assertEquals(39916800L, Task4.factorial(11));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Task4.factorial(-10));
     }
 }
