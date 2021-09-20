@@ -1,7 +1,9 @@
 package titov.homework3.functional;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.function.IntPredicate;
+import java.util.stream.Stream;
 
 /**
  * Write the disjunctAll method that accepts a list of
@@ -18,6 +20,9 @@ public class Task2 {
      * For an empty list it returns the always false predicate.
      */
     public static IntPredicate disjunctAll(List<IntPredicate> predicates) {
+        if (predicates == null) {
+            return n -> false;
+        }
         return predicates.stream().reduce(IntPredicate::or).orElse(n -> false);
     }
 }

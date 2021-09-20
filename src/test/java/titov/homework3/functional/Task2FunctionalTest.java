@@ -1,9 +1,11 @@
 package titov.homework3.functional;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.function.IntPredicate;
 
@@ -29,7 +31,14 @@ public class Task2FunctionalTest {
     @ParameterizedTest
     @ValueSource(ints = {6, 10, 50, 0, -10, 3})
     public void testDisjunctAllEmpty(int number) {
-        IntPredicate resultForEmpty = Task2.disjunctAll(List.of());
+        IntPredicate resultForEmpty = Task2.disjunctAll(Collections.emptyList());
+        Assertions.assertFalse(resultForEmpty.test(number));
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {6, 10, 50, 0, -10, 3})
+    public void testDisjunctAllNull(int number) {
+        IntPredicate resultForEmpty = Task2.disjunctAll(null);
         Assertions.assertFalse(resultForEmpty.test(number));
     }
 }

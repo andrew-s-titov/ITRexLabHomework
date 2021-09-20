@@ -8,8 +8,8 @@ import java.util.Map;
 import java.util.stream.Stream;
 
 public class Task5FunctionalTest {
-    Stream<String> stream1 = List.of("aaaa", "aaa", "a", "aa").stream();
-    Stream<String> stream2 = List.of("level", "bbaa", "ac").stream();
+    Stream<String> stream1 = Stream.of("aaaa", "aaa", "a", "aa");
+    Stream<String> stream2 = Stream.of("level", "bbaa", "ac");
 
     @Test
     public void testCollectorWithList1() {

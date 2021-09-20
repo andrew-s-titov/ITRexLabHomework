@@ -3,6 +3,7 @@ package titov.homework3.functional;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.function.IntUnaryOperator;
 import java.util.function.UnaryOperator;
@@ -36,7 +37,7 @@ public class Task7FunctionalTest {
         Assertions.assertEquals(List.of(6, 6, 6), operator.apply(list1));
         Assertions.assertEquals(List.of(6, 11, 18), operator.apply(list2));
 
-        List<IntUnaryOperator> emptyOperatorList = List.of();
+        List<IntUnaryOperator> emptyOperatorList = Collections.emptyList();
         UnaryOperator<List<Integer>> operator2 = Task7.multifunctionalMapper.apply(emptyOperatorList);
         Assertions.assertEquals(list1, operator2.apply(list1));
         Assertions.assertEquals(list2, operator2.apply(list2));

@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class Task6FunctionalTest {
+
     @Test
     public void testFunction1() {
         Assertions.assertEquals(32, Task6.function1

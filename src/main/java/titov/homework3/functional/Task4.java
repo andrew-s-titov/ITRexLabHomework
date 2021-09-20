@@ -4,8 +4,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
-import java.util.stream.LongStream;
-import java.util.stream.Stream;
 
 /**
  * Write a collector that evaluates the product of squares of integer numbers in a Stream<Integer>.
