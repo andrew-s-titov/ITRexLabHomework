@@ -14,6 +14,16 @@ public class LandRover {
         this.n = n;
     }
 
+    private synchronized void doOrWait(boolean condition, Runnable task) throws InterruptedException{
+        if (condition) {
+            task.run();
+            count++;
+            notifyAll();
+        } else {
+            wait();
+        }
+    }
+
     private boolean divisibleBy5() {
         return count % 5 == 0;
     }
@@ -47,15 +57,5 @@ public class LandRover {
         while (count <= n) {
             doOrWait(!divisibleBy3() && !divisibleBy5(), () -> printNumber.accept(count));
         }
-    }
-
-    public synchronized void doOrWait(boolean condition, Runnable task) throws InterruptedException{
-            if (condition) {
-                task.run();
-                count++;
-                notifyAll();
-            } else {
-                wait();
-            }
     }
 }
