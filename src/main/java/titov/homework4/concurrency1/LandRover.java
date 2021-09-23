@@ -24,52 +24,38 @@ public class LandRover {
     // printLand.run() outputs "land".
     public synchronized void land(Runnable printLand) throws InterruptedException{
         while (count <= n) {
-            if (divisibleBy5() && !divisibleBy3()) {
-                printLand.run();
-                count++;
-                notifyAll();
-            } else {
-                wait();
-            }
+            doOrWait(divisibleBy3() && !divisibleBy5(), printLand);
         }
     }
 
     // printRover.run() outputs "rover".
     public synchronized void rover(Runnable printRover) throws InterruptedException{
         while (count <= n) {
-            if (divisibleBy3() && !divisibleBy5()) {
-                printRover.run();
-                count++;
-                notifyAll();
-            } else {
-                wait();
-            }
+            doOrWait(divisibleBy5() && !divisibleBy3(), printRover);
         }
     }
 
     // printLandRover.run() outputs "landrover".
     public synchronized void landrover(Runnable printLandRover) throws InterruptedException{
         while (count <= n) {
-            if (divisibleBy3() && divisibleBy5()) {
-                printLandRover.run();
-                count++;
-                notifyAll();
-            } else {
-                wait();
-            }
+            doOrWait(divisibleBy3() && divisibleBy5(), printLandRover);
         }
     }
 
     // printNumber.accept(x) outputs "x", where x is an integer.
     public synchronized void number(IntConsumer printNumber) throws InterruptedException{
         while (count <= n) {
-            if (!divisibleBy3() && !divisibleBy5()) {
-                printNumber.accept(count);
+            doOrWait(!divisibleBy3() && !divisibleBy5(), () -> printNumber.accept(count));
+        }
+    }
+
+    public synchronized void doOrWait(boolean condition, Runnable task) throws InterruptedException{
+            if (condition) {
+                task.run();
                 count++;
                 notifyAll();
             } else {
                 wait();
             }
-        }
     }
 }
